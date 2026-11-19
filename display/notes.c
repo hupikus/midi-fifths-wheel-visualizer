@@ -19,7 +19,7 @@ void DrawNoteGlow(circleTransform t, Color color)
 void Notes(circleTransform t)
 {
     PressKey(54);
-    PressKey(108);
+    PressKey(107);
     PressKey(7);
     double angle = 0.0;
     for (int note = 0; note <= COUNT; ++note) {

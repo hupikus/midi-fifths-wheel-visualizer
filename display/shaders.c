@@ -1,6 +1,7 @@
 #include <stddef.h>
-#include "rlgl.h"
+#include <rlgl.h>
 
+#include "shaders.htmp"
 #include "shaders.h"
 
 Shader glow;
@@ -9,7 +10,7 @@ int center, inner_radius, outer_radius, fill_color;
 
 void InitShaders()
 {
-    glow = LoadShader(NULL, "shaders/radial_glow.glsl");
+    glow = LoadShaderFromMemory(NULL, radial_glow_shader);
 
     center = GetShaderLocation(glow, "center");
     inner_radius = GetShaderLocation(glow, "inner_radius");
