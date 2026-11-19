@@ -8,7 +8,7 @@
 #define Eb 3
 #define E 4
 #define F 5
-#define Gb 4
+#define Gb 6
 #define G 7
 #define Ab 8
 #define A 9
