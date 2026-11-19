@@ -7,12 +7,17 @@
 #define WIDTH 1200
 #define HEIGHT 720
 
+#if __STDC_VERSION__ < 202311L
+#define static_assert _Static_assert
+#endif
+
 int main()
 {
     InitWindow(WIDTH, HEIGHT, "VIz");
     SetWindowState(FLAG_WINDOW_RESIZABLE | FLAG_VSYNC_HINT);
 
     InitShaders();
+    UpdateColors();
 
     while (!WindowShouldClose()) {
         BeginDrawing();

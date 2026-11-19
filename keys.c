@@ -21,10 +21,10 @@ bool IsNotePressed(int note)
 
 int GetHigherPressedKey(int note)
 {
-    if (note < 0 || note >= OCTAVE) return false;
-    for (int key = MIDI_RANGE - OCTAVE + note; key >= 0; key -= OCTAVE) {
+    if (note < 0 || note >= OCTAVE) return -1;
+    for (int key = (OCTAVE_COUNT - 1) * OCTAVE + note; key >= 0; key -= OCTAVE) {
         if (IsKeyPressed(key)) {
-            return true;
+            return key;
         }
     }
     return -1;

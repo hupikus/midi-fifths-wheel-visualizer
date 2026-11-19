@@ -6,6 +6,8 @@
 #define OCTAVE 12
 #define OCTAVE_COUNT MIDI_RANGE / OCTAVE + 1
 
+static_assert(OCTAVE_COUNT > 0);
+
 extern bool pressed[128];
 
 bool IsKeyPressed(int key);

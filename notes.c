@@ -18,9 +18,9 @@ void DrawNoteGlow(circleTransform t, Color color)
 #define COUNT 12
 void Notes(circleTransform t)
 {
-    PressKey(15);
-    PressKey(25);
     PressKey(54);
+    PressKey(108);
+    PressKey(7);
     double angle = 0.0;
     for (int note = 0; note <= COUNT; ++note) {
 

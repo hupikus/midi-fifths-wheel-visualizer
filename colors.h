@@ -9,8 +9,12 @@
 #define NOTE_OUTLINE_COLOR (Color){175, 175, 175, 255}
 #define NOTE_DULL_COLOR (Color){40, 40, 40, 255}
 
+extern Color startColor;
+extern Color endColor;
+
 extern Color octaveColors[OCTAVE_COUNT];
 
+void UpdateColors();
 Color GetKeyColor(int key);
 
 #endif // COLORS_H
