@@ -2,7 +2,9 @@ CC ?= gcc
 
 NAME=viz
 
-SRC=main.c
+SRC=main.c \
+    circle.c
+
 LDFLAGS=-lraylib
 
 
@@ -14,7 +16,7 @@ OBJ=$(SRC:.cpp=.o)
 	$(CC) -c $< -o $@
 
 main: $(OBJ)
-	$(CC) $(LDFLAGS) $< -o $(NAME)
+	$(CC) $(LDFLAGS) $^ -o $(NAME)
 
 clean:
 	rm -f **.o

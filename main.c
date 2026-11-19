@@ -1,9 +1,10 @@
 #include <raylib.h>
+#include "display.h"
 
-const int WIDTH = 1200;
-const int HEIGHT = 720;
+#define WIDTH 1200
+#define HEIGHT 720
+
 const Color BACKGROUND = { 24, 24, 27, 255 };
-
 
 int main()
 {
@@ -16,6 +17,9 @@ int main()
 
         int width = GetRenderWidth();
         int height = GetRenderHeight();
+
+        circleTransform transform = GetCircleTransform(width, height);
+        Circle(transform);
 
 
         EndDrawing();
