@@ -3,7 +3,10 @@
 
 #include "shaders.h"
 #include "display.h"
+
 #include "colors.h"
+#include "note_text.h"
+
 #include "options.h"
 
 #include "keys.h"
@@ -42,6 +45,8 @@ void Notes(circleTransform t)
         if (!pressed) {
             DrawCircleSectorLines(noteCircle.position, noteCircle.radius, 0, 360, 100, NOTE_OUTLINE_COLOR);
         }
+
+        NoteText(noteCircle);
 
         angle = M_PI * 2.0 / (float)COUNT * note;
     }

@@ -5,6 +5,7 @@ NAME=viz
 SRC=main.c \
     display/shaders.c \
     display/circle.c display/notes.c \
+    display/note_text.c display/fonts.c \
     options.c colors.c \
     keys.c
 
