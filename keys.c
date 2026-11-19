@@ -41,3 +41,17 @@ void ReleaseKey(int key)
     if (key < 0 || key >= MIDI_RANGE) return;
     pressed[key] = false;
 }
+
+const char *notes[OCTAVE] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
+const char *GetNoteName(int note)
+{
+    if (note < 0 || note >= OCTAVE) return "Cb";
+    return notes[note];
+}
+
+const int fifths_wheel[OCTAVE] = {F, C, G, D, A, E, B, Gb, Db, Ab, Eb, Bb};
+int GetFifthsWheelNote(int order)
+{
+    if (order < 0 || order >= OCTAVE) return -1;
+    return fifths_wheel[order];
+}

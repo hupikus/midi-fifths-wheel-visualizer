@@ -1,6 +1,8 @@
 #include <raylib.h>
 
 #include "shaders.h"
+#include "fonts.h"
+
 #include "colors.h"
 #include "display.h"
 
@@ -17,6 +19,7 @@ int main()
     SetWindowState(FLAG_WINDOW_RESIZABLE | FLAG_VSYNC_HINT);
 
     InitShaders();
+    InitFonts();
     UpdateColors();
 
     while (!WindowShouldClose()) {

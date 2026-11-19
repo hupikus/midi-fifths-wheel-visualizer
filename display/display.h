@@ -1,5 +1,6 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
+#include <raylib.h>
 
 typedef struct {
 	Vector2 position;
@@ -9,5 +10,6 @@ typedef struct {
 circleTransform GetCircleTransform(int width, int height);
 void Circle(circleTransform t);
 void Notes(circleTransform t);
+void NoteText(circleTransform t, int note);
 
 #endif // DISPLAY_H

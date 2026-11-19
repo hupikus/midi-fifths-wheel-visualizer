@@ -6,6 +6,7 @@
 #define BACKGROUND (Color){ 24, 24, 27, 255 }
 #define CIRCLE_COLOR (Color){200, 200, 200, 100}
 
+#define NOTE_TEXT_COLOR (Color){225, 225, 225, 255}
 #define NOTE_OUTLINE_COLOR (Color){175, 175, 175, 255}
 #define NOTE_DULL_COLOR (Color){40, 40, 40, 255}
 

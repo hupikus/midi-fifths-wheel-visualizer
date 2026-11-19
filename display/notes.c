@@ -5,8 +5,6 @@
 #include "display.h"
 
 #include "colors.h"
-#include "note_text.h"
-
 #include "options.h"
 
 #include "keys.h"
@@ -25,7 +23,9 @@ void Notes(circleTransform t)
     PressKey(107);
     PressKey(7);
     double angle = 0.0;
-    for (int note = 0; note <= COUNT; ++note) {
+    for (int i = 0; i <= COUNT; ++i) {
+        angle = (-M_PI * 0.5) + (M_PI * 2.0) * (i / (float)COUNT);
+        int note = GetFifthsWheelNote(i);
 
         circleTransform noteCircle;
 
@@ -46,9 +46,7 @@ void Notes(circleTransform t)
             DrawCircleSectorLines(noteCircle.position, noteCircle.radius, 0, 360, 100, NOTE_OUTLINE_COLOR);
         }
 
-        NoteText(noteCircle);
-
-        angle = M_PI * 2.0 / (float)COUNT * note;
+        NoteText(noteCircle, note);
     }
 }
 
