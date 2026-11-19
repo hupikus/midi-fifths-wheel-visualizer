@@ -1,9 +1,7 @@
 #include <math.h>
-#include <stdio.h>
 
 #include "display.h"
 #include "fonts.h"
-
 #include "colors.h"
 
 #define RELOAD_TRESHOLD 2.0

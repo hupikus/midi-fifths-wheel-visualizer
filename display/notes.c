@@ -19,11 +19,11 @@ void DrawNoteGlow(circleTransform t, Color color)
 #define COUNT 12
 void Notes(circleTransform t)
 {
-    PressKey(54);
+    PressKey(56);
     PressKey(107);
     PressKey(7);
     double angle = 0.0;
-    for (int i = 0; i <= COUNT; ++i) {
+    for (int i = 0; i < COUNT; ++i) {
         angle = (-M_PI * 0.5) + (M_PI * 2.0) * (i / (float)COUNT);
         int note = GetFifthsWheelNote(i);
 
