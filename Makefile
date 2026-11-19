@@ -23,12 +23,14 @@ OBJ=$(SRC:.c=.o)
 main: shaders $(OBJ)
 	$(CC) $(LDFLAGS) $(OBJ) -o $(NAME)
 
-clean:
+clean: main
 	rm -f **.o
 	rm -f *.htmp
-	rm -f ./$(NAME)
 
-run: main
+
+$(NAME): main
+
+run: $(NAME)
 	./$(NAME)
 
 

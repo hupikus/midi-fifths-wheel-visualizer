@@ -4,6 +4,9 @@ This is a free and open-source atomic tool. If you need an advanced solution wit
 
 This application brings realtime midi visualization with raylib C on native linux.
 
+# Dependencies
+Raylib and rtmidi.
+
 # Compilation
 ```sh
 make
