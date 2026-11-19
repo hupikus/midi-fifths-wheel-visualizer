@@ -36,11 +36,11 @@ void Notes(circleTransform t)
         int note = GetFifthsWheelNote(i);
         pressed[note] = IsNotePressed(note);
         if (pressed[note]) {
-            AddToNotePolygon(GetNotePosition(t, i));
+            AddToNotePolygon(note);
         }
     }
 
-    NotePolygon();
+    NotePolygon(t);
 
     for (int i = 0; i < OCTAVE; ++i) {
         int note = GetFifthsWheelNote(i);
