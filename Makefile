@@ -20,7 +20,7 @@ OBJ=$(SRC:.c=.o)
 %.o: %.c
 	$(CC) -c $(FLAGS) $< -o $@
 
-main: shaders $(OBJ)
+main: shaders.htmp $(OBJ)
 	$(CC) $(LDFLAGS) $(OBJ) -o $(NAME)
 
 clean:
@@ -36,8 +36,9 @@ run: $(NAME)
 
 SHADERS = radial_glow \
 	  line_gradient
+SHADER_FILES = $(addprefix shaders/,$(addsuffix .glsl,$(SHADERS)))
 
-shaders: $(addprefix shaders/,$(addsuffix .glsl,$(SHADERS)))
+shaders.htmp: $(SHADER_FILES)
 	@rm -f shaders.htmp
 	@for shader in $(SHADERS); do \
 		printf 'const char *%s_shader =\n' "$$shader" >> shaders.htmp; \

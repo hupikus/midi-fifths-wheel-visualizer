@@ -24,6 +24,6 @@ void NotePolygon()
 
     for (int i = 0; i < points_size; ++i) {
         int j = (i + 1) % points_size;
-        DrawLineGradientEx(points[i], points[j], NOTE_POLYGON_THICKNESS, PINK, ORANGE);
+        DrawLineGradientEx(points[i], points[j], NOTE_POLYGON_THICKNESS, PINK, YELLOW);
     }
 }
