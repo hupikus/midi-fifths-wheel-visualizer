@@ -32,7 +32,7 @@ run: main
 
 
 SHADERS = radial_glow
-shaders: shaders/radial_glow.glsl
+shaders: $(addprefix shaders/,$(addsuffix .glsl,$(SHADERS)))
 	@rm -f shaders.htmp
 	@for shader in $(SHADERS); do \
 		printf 'const char *%s_shader =\n' "$$shader" >> shaders.htmp; \
