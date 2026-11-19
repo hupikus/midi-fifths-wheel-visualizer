@@ -14,11 +14,11 @@ void ClearNotePolygon()
     points_size = 0;
 }
 
-void AddToNotePolygon(int note)
+void AddToNotePolygon(int order)
 {
-    if (note < 0 || note >= OCTAVE) return;
+    if (order < 0 || order >= OCTAVE) return;
 
-    points[points_size++] = note;
+    points[points_size++] = order;
     if (points_size >= OCTAVE) return;
 }
 
@@ -30,10 +30,12 @@ void NotePolygon(circleTransform t)
         int j = (i + 1) % points_size;
 
         Vector2 posA = GetNotePosition(t, points[i]);
-        Color colA = GetKeyColor(GetHigherPressedKey(points[i]));
+        int noteA = GetFifthsWheelNote(i);
+        Color colA = GetKeyColor(GetHigherPressedKey(noteA));
 
         Vector2 posB = GetNotePosition(t, points[j]);
-        Color colB = GetKeyColor(GetHigherPressedKey(points[j]));
+        int noteB = GetFifthsWheelNote(j);
+        Color colB = GetKeyColor(GetHigherPressedKey(noteB));
         
         DrawLineGradientEx(posA, posB, NOTE_POLYGON_THICKNESS, colA, colB);
         DrawLineGradientEx(posA, posB, NOTE_POLYGON_THICKNESS, colA, colB);
