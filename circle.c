@@ -29,9 +29,9 @@ circleTransform GetCircleTransform(int width, int height)
 }
 
 
-const Color CIRCLE_COLOR = { 222, 222, 222, 222};
+const Color CIRCLE_COLOR = { 222, 222, 222, 222 };
 
 void Circle(circleTransform t)
 {
-    DrawCircleV(t.position, t.radius, CIRCLE_COLOR);
+    DrawCircleSectorLines(t.position, t.radius, 0, 360, 360, CIRCLE_COLOR);
 }
