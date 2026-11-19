@@ -1,5 +1,7 @@
 #include <raylib.h>
+
 #include "display.h"
+#include "colors.h"
 #include "options.h"
 
 
@@ -28,8 +30,6 @@ circleTransform GetCircleTransform(int width, int height)
     return t;
 }
 
-
-const Color CIRCLE_COLOR = { 222, 222, 222, 222 };
 
 void Circle(circleTransform t)
 {

@@ -11,5 +11,6 @@ extern float MAX_OCCUPANCY;
 extern float MAX_VERTICAL_OCCUPANCY;
 
 extern float NOTE_RADIUS_SCALE;
+extern float NOTE_GLOW_SCALE;
 
 #endif // OPTIONS_H

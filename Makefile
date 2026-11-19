@@ -3,8 +3,10 @@ CC ?= gcc
 NAME=viz
 
 SRC=main.c \
+    shaders.c \
     circle.c notes.c \
-    options.c
+    options.c colors.c \
+    keys.c
 
 LDFLAGS=-lm -lraylib
 
