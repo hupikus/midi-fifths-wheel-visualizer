@@ -13,6 +13,11 @@ int main()
     while (!WindowShouldClose()) {
         BeginDrawing();
         ClearBackground(BACKGROUND);
+
+        int width = GetRenderWidth();
+        int height = GetRenderHeight();
+
+
         EndDrawing();
     }
 

@@ -1,8 +1,8 @@
-CC ?= g++
+CC ?= gcc
 
 NAME=viz
 
-SRC=main.cpp
+SRC=main.c
 LDFLAGS=-lraylib
 
 
@@ -10,7 +10,7 @@ OBJ=$(SRC:.cpp=.o)
 
 .PHONY: main
 
-%.o: %.cpp
+%.o: %.c
 	$(CC) -c $< -o $@
 
 main: $(OBJ)
