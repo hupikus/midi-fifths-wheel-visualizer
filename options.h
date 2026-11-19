@@ -13,6 +13,7 @@ extern float MAX_VERTICAL_OCCUPANCY;
 
 extern float NOTE_RADIUS_SCALE;
 extern float NOTE_GLOW_SCALE;
+extern float NOTE_POLYGON_THICKNESS;
 
 extern bool shaders;
 

@@ -4,8 +4,6 @@
 
 void InitShaders();
 
-extern Shader glow;
-
 void DrawCircleGlow(Vector2 position, float radius_in, float radius_out, Color color);
 
 #endif // SHADERS_H
