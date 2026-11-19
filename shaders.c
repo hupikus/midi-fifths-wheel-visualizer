@@ -9,7 +9,7 @@ int center, inner_radius, outer_radius, fill_color;
 
 void InitShaders()
 {
-    glow = LoadShader(NULL, "shaders/glow.glsl");
+    glow = LoadShader(NULL, "shaders/radial_glow.glsl");
 
     center = GetShaderLocation(glow, "center");
     inner_radius = GetShaderLocation(glow, "inner_radius");
