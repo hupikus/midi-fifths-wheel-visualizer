@@ -34,7 +34,9 @@ run: $(NAME)
 	./$(NAME)
 
 
-SHADERS = radial_glow
+SHADERS = radial_glow \
+	  line_gradient
+
 shaders: $(addprefix shaders/,$(addsuffix .glsl,$(SHADERS)))
 	@rm -f shaders.htmp
 	@for shader in $(SHADERS); do \

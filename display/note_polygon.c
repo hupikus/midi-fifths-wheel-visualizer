@@ -2,6 +2,7 @@
 
 #include "options.h"
 #include "keys.h"
+#include "shaders.h"
 
 int points_size = 0;
 Vector2 points[OCTAVE] = {0};
@@ -23,7 +24,6 @@ void NotePolygon()
 
     for (int i = 0; i < points_size; ++i) {
         int j = (i + 1) % points_size;
-
-        DrawLineEx(points[i], points[j], NOTE_POLYGON_THICKNESS, WHITE);
+        DrawLineGradientEx(points[i], points[j], NOTE_POLYGON_THICKNESS, PINK, ORANGE);
     }
 }
