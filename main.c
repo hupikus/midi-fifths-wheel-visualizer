@@ -20,6 +20,7 @@ int main()
 
         circleTransform transform = GetCircleTransform(width, height);
         Circle(transform);
+        Notes(transform);
 
 
         EndDrawing();

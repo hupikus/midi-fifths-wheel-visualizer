@@ -3,9 +3,10 @@ CC ?= gcc
 NAME=viz
 
 SRC=main.c \
-    circle.c
+    circle.c notes.c \
+    options.c
 
-LDFLAGS=-lraylib
+LDFLAGS=-lm -lraylib
 
 
 OBJ=$(SRC:.cpp=.o)

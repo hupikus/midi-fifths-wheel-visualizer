@@ -1,10 +1,7 @@
 #include <raylib.h>
 #include "display.h"
+#include "options.h"
 
-int mode = MODE_WHEEL;
-
-float MAX_OCCUPANCY = 0.95;
-float MAX_VERTICAL_OCCUPANCY = 0.5;
 
 circleTransform GetCircleTransform(int width, int height)
 {
