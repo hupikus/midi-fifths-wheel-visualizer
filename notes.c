@@ -11,9 +11,7 @@
 
 void DrawNoteGlow(circleTransform t, Color color)
 {
-    BeginShaderMode(glow);
-    DrawCircleLinesEx(t.position, t.radius * NOTE_GLOW_SCALE, t.radius * (NOTE_GLOW_SCALE - 1.0), color);
-    EndShaderMode();
+    DrawCircleGlow(t.position, t.radius, t.radius * NOTE_GLOW_SCALE, color);
 }
 
 
