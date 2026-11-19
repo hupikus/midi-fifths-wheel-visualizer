@@ -22,7 +22,6 @@ int main()
         Circle(transform);
         Notes(transform);
 
-
         EndDrawing();
     }
 

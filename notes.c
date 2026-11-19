@@ -5,18 +5,18 @@
 #include "options.h"
 
 
-#define COUNT 12.0
+#define COUNT 12
 void Notes(circleTransform t)
 {
     double angle = 0.0;
     float radius = t.radius * NOTE_RADIUS_SCALE;
-    while (angle < M_PI * 2.0) {
+    for (int n = 0; n <= COUNT; ++n) {
         Vector2 pos = t.position;
         pos.x += cos(angle) * t.radius;
         pos.y += sin(angle) * t.radius;
 
-        DrawCircleSector(pos, radius, 0, 360, 360, RAYWHITE);
+        DrawCircleSector(pos, radius, 0, 360, 100, RAYWHITE);
 
-        angle += M_PI * 2.0 / COUNT;
+        angle = M_PI * 2.0 / (float)COUNT * n;
     }
 }

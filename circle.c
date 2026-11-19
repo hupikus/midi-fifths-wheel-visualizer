@@ -19,8 +19,11 @@ circleTransform GetCircleTransform(int width, int height)
         t.radius = occupy_height / 2.0;
     }
 
+
     t.position.x = width / 2;
-    t.position.y = height * (1.0 - MAX_OCCUPANCY) / 2 + t.radius;
+    t.position.y = height * (1.0 - MAX_OCCUPANCY) / 2 + t.radius * (1.0 + NOTE_RADIUS_SCALE / 2.0);
+
+    t.radius *= (1.0 - NOTE_RADIUS_SCALE);
 
     return t;
 }
