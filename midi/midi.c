@@ -72,16 +72,17 @@ void *InitMidi(void *arg)
 
             for (unsigned int i = 0; i < count; ++i)
             {
-                if (i < MIDI_SELECTION) {
-                    continue;
-                }
                 int buflen = 256;
                 char buffer[buflen];
 
                 enum RtMidiErrorType error;
                 rtmidi_get_port_name(midi_in, i, &buffer[0], &buflen);
-
                 if (!buffer[0]) continue;
+
+                UI_SetMidiDevice(&buffer[0], i);
+                if (i < MIDI_SELECTION) {
+                    continue;
+                }
 
                 rtmidi_open_port(midi_in, i, "Keyboard");
                 port = i;

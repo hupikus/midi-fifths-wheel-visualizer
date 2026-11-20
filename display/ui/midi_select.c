@@ -46,7 +46,7 @@ void UI_SetMidiDevice(const char *dev_name, unsigned int dev_port)
     assert(dev != NULL);
 
     midiListItem *new_dev = malloc(sizeof(midiListItem));
-    new_dev->item = (midiDevice){dev_name, dev_port};
+    new_dev->item = (midiDevice){strdup(dev_name), dev_port};
     new_dev->next = NULL;
     new_dev->enabled = true;
 
