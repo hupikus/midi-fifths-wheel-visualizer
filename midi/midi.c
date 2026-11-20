@@ -8,6 +8,8 @@
 #include "options.h"
 #include "keys.h"
 
+#include "ui/midi_select.h"
+
 RtMidiInPtr midi_in = NULL;
 unsigned int port = 0;
 
@@ -45,6 +47,14 @@ void MidiCallback(double timestamp,
     }
 }
 
+
+void disconnect()
+{
+    rtmidi_in_cancel_callback(midi_in);
+    rtmidi_close_port(midi_in);
+    connected = false;
+}
+
 void *InitMidi(void *arg)
 {
     midi_in = rtmidi_in_create_default();
@@ -57,10 +67,14 @@ void *InitMidi(void *arg)
 
     while (running) {
         unsigned int count = rtmidi_get_port_count(midi_in);
-        if (!connected) {
+        if (!connected || port < MIDI_SELECTION) {
+            if (connected) { disconnect(); }
+
             for (unsigned int i = 0; i < count; ++i)
             {
-                //if (i == 0) continue;
+                if (i < MIDI_SELECTION) {
+                    continue;
+                }
                 int buflen = 256;
                 char buffer[buflen];
 
@@ -76,13 +90,10 @@ void *InitMidi(void *arg)
 
                 rtmidi_in_set_callback(midi_in, MidiCallback, NULL);
             }
-        } else {
-            if (port >= count)
-            {
-                rtmidi_in_cancel_callback(midi_in);
-                rtmidi_close_port(midi_in);
-                connected = false;
-            }
+        }
+        if (connected && port >= count)
+        {
+            disconnect();
         }
 
         usleep(RECONNECT_TIME * 1000);

@@ -23,5 +23,6 @@ extern float CIRCLE_DEFAULT_RADIUS;
 
 
 extern float RECONNECT_TIME;
+extern unsigned int MIDI_SELECTION;
 
 #endif // OPTIONS_H
