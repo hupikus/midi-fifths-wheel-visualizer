@@ -29,6 +29,7 @@ void Notes(circleTransform t)
     PressKey(51);
     PressKey(107);
     PressKey(7);
+    PressKey(121);
 
     ClearNotePolygon();
     bool pressed[OCTAVE];

@@ -9,6 +9,11 @@ uniform vec4 colorB;
 
 void main()
 {
-	float progress = distance(gl_FragCoord.xy, pointB) / distance(pointA, pointB);
+	vec2 direction = pointB - pointA;
+	vec2 difference = gl_FragCoord.xy - pointA;
+
+	float projected = dot(direction, difference) / length(direction);
+
+	float progress = projected / length(direction);
 	finalColor = mix(colorA, colorB, progress);
 }

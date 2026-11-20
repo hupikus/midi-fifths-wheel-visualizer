@@ -20,7 +20,8 @@ void InitShaders()
     fill_color = GetShaderLocation(glow, "color");
 
 
-    lineGradient = LoadShaderFromMemory(NULL, line_gradient_shader);
+    //lineGradient = LoadShaderFromMemory(NULL, line_gradient_shader);
+    lineGradient = LoadShader(NULL, "shaders/line_gradient.glsl");
     pointA = GetShaderLocation(lineGradient, "pointA");
     pointB = GetShaderLocation(lineGradient, "pointB");
     colorA = GetShaderLocation(lineGradient, "colorA");

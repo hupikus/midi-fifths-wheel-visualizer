@@ -38,6 +38,5 @@ void NotePolygon(circleTransform t)
         Color colB = GetKeyColor(GetHigherPressedKey(noteB));
         
         DrawLineGradientEx(posA, posB, NOTE_POLYGON_THICKNESS, colA, colB);
-        DrawLineGradientEx(posA, posB, NOTE_POLYGON_THICKNESS, colA, colB);
     }
 }
