@@ -7,7 +7,7 @@
 
 #include <raylib.h>
 
-#include "ui/midi_select.h"
+#include "widgets/midi_select.h"
 
 
 typedef struct {
