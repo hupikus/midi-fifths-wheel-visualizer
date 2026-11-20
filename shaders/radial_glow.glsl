@@ -27,8 +27,8 @@ void main()
 	//const float base = 5.0;
 	//float mapped = 1.0 - log(base * progress) / log(base);
 
-	// Cubic-beizer
-	float mapped = pow(1.0 - progress, 4);
+	// Quatric
+	float mapped = pow(1.0 - progress, 4.0);
 
 	// Sine
 	//float mapped = 1.0 - sin((progress * PI) / 2.0);

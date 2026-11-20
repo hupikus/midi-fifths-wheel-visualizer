@@ -8,8 +8,10 @@
 Shader glow;
 int center, inner_radius, outer_radius, fill_color;
 
+
 Shader lineGradient;
 int pointA, pointB, colorA, colorB;
+int line_inner_thick, line_outer_thick;
 
 void InitShaders()
 {
@@ -20,12 +22,14 @@ void InitShaders()
     fill_color = GetShaderLocation(glow, "color");
 
 
-    //lineGradient = LoadShaderFromMemory(NULL, line_gradient_shader);
-    lineGradient = LoadShader(NULL, "shaders/line_gradient.glsl");
+    lineGradient = LoadShaderFromMemory(NULL, line_gradient_shader);
     pointA = GetShaderLocation(lineGradient, "pointA");
     pointB = GetShaderLocation(lineGradient, "pointB");
     colorA = GetShaderLocation(lineGradient, "colorA");
     colorB = GetShaderLocation(lineGradient, "colorB");
+
+    line_inner_thick = GetShaderLocation(lineGradient, "inner_thick");
+    line_outer_thick = GetShaderLocation(lineGradient, "outer_thick");
 }
 
 void DrawCircleGlow(Vector2 position, float radius_in, float radius_out, Color color)
@@ -48,7 +52,7 @@ void DrawCircleGlow(Vector2 position, float radius_in, float radius_out, Color c
     EndShaderMode();
 }
 
-void DrawLineGradientEx(Vector2 startPos, Vector2 endPos, float thick, Color start, Color end)
+void DrawLineGradientEx(Vector2 startPos, Vector2 endPos, float thick, float glowThick, Color start, Color end)
 {
     Vector2 gl_StartPos = startPos;
     gl_StartPos.y = GetScreenHeight() - startPos.y;
@@ -73,7 +77,10 @@ void DrawLineGradientEx(Vector2 startPos, Vector2 endPos, float thick, Color sta
     SetShaderValue(lineGradient, colorA, &gl_ColA, SHADER_UNIFORM_VEC4);
     SetShaderValue(lineGradient, colorB, &gl_ColB, SHADER_UNIFORM_VEC4);
 
+    SetShaderValue(lineGradient, line_inner_thick, &thick, SHADER_UNIFORM_FLOAT);
+    SetShaderValue(lineGradient, line_outer_thick, &glowThick, SHADER_UNIFORM_FLOAT);
+
     BeginShaderMode(lineGradient);
-    DrawLineEx(startPos, endPos, thick, WHITE);
+    DrawLineEx(startPos, endPos, glowThick, WHITE);
     EndShaderMode();
 }

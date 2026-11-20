@@ -20,7 +20,9 @@ OBJ=$(SRC:.c=.o)
 %.o: %.c
 	$(CC) -c $(FLAGS) $< -o $@
 
-main: shaders.htmp $(OBJ)
+display/shaders.o: shaders.htmp
+
+main: $(OBJ)
 	$(CC) $(LDFLAGS) $(OBJ) -o $(NAME)
 
 clean:
@@ -34,8 +36,8 @@ run: $(NAME)
 	./$(NAME)
 
 
-SHADERS = radial_glow \
-	  line_gradient
+SHADERS = radial_glow line_gradient
+
 SHADER_FILES = $(addprefix shaders/,$(addsuffix .glsl,$(SHADERS)))
 
 shaders.htmp: $(SHADER_FILES)

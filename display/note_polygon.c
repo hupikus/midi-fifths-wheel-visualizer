@@ -30,13 +30,17 @@ void NotePolygon(circleTransform t)
         int j = (i + 1) % points_size;
 
         Vector2 posA = GetNotePosition(t, points[i]);
-        int noteA = GetFifthsWheelNote(i);
+        int noteA = GetFifthsWheelNote(points[i]);
         Color colA = GetKeyColor(GetHigherPressedKey(noteA));
 
         Vector2 posB = GetNotePosition(t, points[j]);
-        int noteB = GetFifthsWheelNote(j);
+        int noteB = GetFifthsWheelNote(points[j]);
         Color colB = GetKeyColor(GetHigherPressedKey(noteB));
+
+        float relScale = t.radius / CIRCLE_DEFAULT_RADIUS;
+        float thick = NOTE_POLYGON_THICKNESS * relScale;
+        float glowThick = thick + NOTE_POLYGON_GLOW_THICKNESS * relScale;
         
-        DrawLineGradientEx(posA, posB, NOTE_POLYGON_THICKNESS, colA, colB);
+        DrawLineGradientEx(posA, posB, thick, glowThick, colA, colB);
     }
 }

@@ -26,11 +26,6 @@ Vector2 GetNotePosition(circleTransform t, int order)
 
 void Notes(circleTransform t)
 {
-    PressKey(51);
-    PressKey(107);
-    PressKey(7);
-    PressKey(121);
-
     ClearNotePolygon();
     bool pressed[OCTAVE];
     for (int i = 0; i < OCTAVE; ++i) {

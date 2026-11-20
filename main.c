@@ -4,10 +4,9 @@
 #include "fonts.h"
 
 #include "colors.h"
+#include "options.h"
 #include "display.h"
 
-#define WIDTH 1200
-#define HEIGHT 720
 
 #if __STDC_VERSION__ < 202311L
 #define static_assert _Static_assert
