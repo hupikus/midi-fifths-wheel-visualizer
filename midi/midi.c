@@ -60,7 +60,7 @@ void *InitMidi(void *arg)
         if (!connected) {
             for (unsigned int i = 0; i < count; ++i)
             {
-                if (i == 0) continue;
+                //if (i == 0) continue;
                 int buflen = 256;
                 char buffer[buflen];
 
