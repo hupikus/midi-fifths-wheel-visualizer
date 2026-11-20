@@ -25,11 +25,12 @@ midiListItem midiList = {0};
 
 void UI_SetMidiDevice(const char *dev_name, unsigned int dev_port)
 {
+    if (dev_name == NULL) return;
     midiListItem *dev = &midiList;
 
     while (1) {
         if (dev->item.port == dev_port) {
-            if (strcmp(dev->item.name, dev_name) == 0) {
+            if (dev->item.name != NULL && strcmp(dev->item.name, dev_name) == 0) {
                 dev->enabled = true;
                 return;
             } else {

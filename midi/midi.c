@@ -79,7 +79,7 @@ void *InitMidi(void *arg)
                 rtmidi_get_port_name(midi_in, i, &buffer[0], &buflen);
                 if (!buffer[0]) continue;
 
-                //UI_SetMidiDevice(&buffer[0], i);
+                UI_SetMidiDevice(&buffer[0], i);
                 if (i < MIDI_SELECTION) {
                     continue;
                 }
