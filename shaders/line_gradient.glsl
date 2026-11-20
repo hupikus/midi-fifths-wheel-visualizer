@@ -41,7 +41,6 @@ void main()
 	float mapped = pow(1.0 - progress, 4.0);
 
 	if (!inner) {
-		//finalColor.r = mapped;
 		finalColor.a = mapped * alpha;
 	}
 }

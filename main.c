@@ -1,3 +1,4 @@
+#include <pthread.h>
 #include <raylib.h>
 
 #include "shaders.h"
@@ -6,6 +7,8 @@
 #include "colors.h"
 #include "options.h"
 #include "display.h"
+
+#include "midi/midi.h"
 
 
 #if __STDC_VERSION__ < 202311L
@@ -16,6 +19,14 @@ int main()
 {
     InitWindow(WIDTH, HEIGHT, "VIz");
     SetWindowState(FLAG_WINDOW_RESIZABLE | FLAG_VSYNC_HINT);
+
+    pthread_t midiThread;
+    pthread_create(
+        &midiThread,
+        NULL,
+        InitMidi,
+        NULL
+    );
 
     InitShaders();
     InitFonts();
@@ -36,4 +47,5 @@ int main()
     }
 
     CloseWindow();
+    TerminateMidi();
 }

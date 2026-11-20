@@ -6,24 +6,24 @@ SRC=main.c \
     display/shaders.c \
     display/circle.c display/notes.c display/note_polygon.c \
     display/note_text.c display/fonts.c \
-    options.c colors.c \
-    keys.c
+    options.c colors.c keys.c \
+    midi/midi.c
 
 FLAGS=-Idisplay/ -I./
-LDFLAGS=-lm -lraylib
+LDFLAGS=-lm -lraylib -lrtmidi
 
 
 OBJ=$(SRC:.c=.o)
 
 .PHONY: main run clean shaders
 
+main: $(OBJ)
+	$(CC) $(LDFLAGS) $(OBJ) -o $(NAME)
+
 %.o: %.c
 	$(CC) -c $(FLAGS) $< -o $@
 
 display/shaders.o: shaders.htmp
-
-main: $(OBJ)
-	$(CC) $(LDFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	rm -f **.o

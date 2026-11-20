@@ -21,4 +21,7 @@ extern float NOTE_POLYGON_GLOW_THICKNESS;
 
 extern float CIRCLE_DEFAULT_RADIUS;
 
+
+extern float RECONNECT_TIME;
+
 #endif // OPTIONS_H
