@@ -6,7 +6,9 @@
 
 #include "colors.h"
 #include "options.h"
+
 #include "display.h"
+#include "display/widgets/midi_select/widget.h"
 
 #include "midi/midi.h"
 
@@ -42,6 +44,8 @@ int main()
         circleTransform transform = GetCircleTransform(width, height);
         Circle(transform);
         Notes(transform);
+
+        MidiSelector();
 
         EndDrawing();
     }

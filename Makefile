@@ -6,7 +6,7 @@ SRC=main.c \
     midi/midi.c \
     display/shaders.c \
     options.c colors.c keys.c \
-    display/widgets/midi_select.c \
+    display/widgets/midi_select/widget.c display/widgets/midi_select/midi_list.c \
     display/circle.c display/notes.c display/note_polygon.c \
     display/note_text.c display/fonts.c \
 

@@ -8,7 +8,7 @@
 #include "options.h"
 #include "keys.h"
 
-#include "widgets/midi_select.h"
+#include "widgets/midi_select/widget.h"
 
 RtMidiInPtr midi_in = NULL;
 unsigned int port = 0;
