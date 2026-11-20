@@ -15,7 +15,7 @@ Vector2 GetNotePosition(circleTransform t, int order);
 void NoteText(circleTransform t, int note);
 
 void ClearNotePolygon();
-void AddToNotePolygon(int note);
+void AddToNotePolygon(int order);
 void NotePolygon(circleTransform t);
 
 #endif // DISPLAY_H

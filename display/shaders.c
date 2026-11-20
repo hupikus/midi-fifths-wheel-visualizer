@@ -50,7 +50,8 @@ void DrawCircleGlow(Vector2 position, float radius_in, float radius_out, Color c
 
 void DrawLineGradientEx(Vector2 startPos, Vector2 endPos, float thick, Color start, Color end)
 {
-
+    Vector2 gl_StartPos = startPos;
+    gl_StartPos.y = GetScreenHeight() - startPos.y;
     Vector4 gl_ColA = {
         start.r / 255.0f,
         start.g / 255.0f,
@@ -58,6 +59,8 @@ void DrawLineGradientEx(Vector2 startPos, Vector2 endPos, float thick, Color sta
         start.a / 255.0f,
     };
 
+    Vector2 gl_EndPos = endPos;
+    gl_EndPos.y = GetScreenHeight() - endPos.y;
     Vector4 gl_ColB = {
         end.r / 255.0f,
         end.g / 255.0f,
@@ -65,8 +68,8 @@ void DrawLineGradientEx(Vector2 startPos, Vector2 endPos, float thick, Color sta
         end.a / 255.0f,
     };
 
-    SetShaderValue(lineGradient, pointA, &startPos, SHADER_UNIFORM_VEC2);
-    SetShaderValue(lineGradient, pointB, &endPos, SHADER_UNIFORM_VEC2);
+    SetShaderValue(lineGradient, pointA, &gl_StartPos, SHADER_UNIFORM_VEC2);
+    SetShaderValue(lineGradient, pointB, &gl_EndPos, SHADER_UNIFORM_VEC2);
     SetShaderValue(lineGradient, colorA, &gl_ColA, SHADER_UNIFORM_VEC4);
     SetShaderValue(lineGradient, colorB, &gl_ColB, SHADER_UNIFORM_VEC4);
 
