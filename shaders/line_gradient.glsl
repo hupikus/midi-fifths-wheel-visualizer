@@ -10,7 +10,7 @@ uniform vec4 colorB;
 uniform float inner_thick;
 uniform float outer_thick;
 
-const float alpha = 0.45;
+const float alpha = 0.7;
 
 float cross(vec2 a, vec2 b)
 {
@@ -38,7 +38,8 @@ void main()
 		inner = true;
 	}
 	progress = clamp(progress, 0.0, 1.0);
-	float mapped = pow(1.0 - progress, 4.0);
+	float mapped = pow(1.0 - progress, 6.0);
+	//float mapped = progress;
 
 	if (!inner) {
 		finalColor.a = mapped * alpha;

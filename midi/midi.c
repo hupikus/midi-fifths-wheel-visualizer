@@ -67,7 +67,13 @@ void *InitMidi(void *arg)
 
     while (running) {
         unsigned int count = rtmidi_get_port_count(midi_in);
-        if (!connected || port < MIDI_SELECTION) {
+
+        unsigned int selection = MIDI_SELECTION;
+        if (selection >= count) {
+            selection = 0;
+        }
+
+        if (!connected || port < selection) {
             if (connected) { disconnect(); }
 
             for (unsigned int i = 0; i < count; ++i)
@@ -80,7 +86,7 @@ void *InitMidi(void *arg)
                 if (!buffer[0]) continue;
 
                 UI_SetMidiDevice(&buffer[0], i);
-                if (i < MIDI_SELECTION) {
+                if (i < selection) {
                     continue;
                 }
 
