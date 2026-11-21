@@ -7,6 +7,7 @@
 #include "colors.h"
 #include "options.h"
 
+#include "display/widgets/widgets.h"
 #include "display/widgets/wheel/widget.h"
 #include "display/widgets/midi_select/widget.h"
 
@@ -41,11 +42,7 @@ int main()
         int width = GetRenderWidth();
         int height = GetRenderHeight();
 
-        circleTransform transform = GetCircleTransform(width, height);
-        Circle(transform);
-        Notes(transform);
-
-        MidiSelector();
+        DrawWidgets(width, height);
 
         EndDrawing();
     }

@@ -7,6 +7,7 @@ typedef struct {
 	float radius;
 } circleTransform;
 
+void Wheel(int width, int height);
 circleTransform GetCircleTransform(int width, int height);
 void Circle(circleTransform t);
 void Notes(circleTransform t);

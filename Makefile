@@ -5,11 +5,12 @@ NAME=viz
 SRC=main.c \
     midi/midi.c \
     display/fonts.c display/shaders.c \
-    options.c colors.c keys.c
+    options.c colors.c keys.c \
+    display/widgets/widgets.c
 
 
 WIDGET_WHEEL = \
-    circle.c notes.c note_polygon.c \
+    widget.c circle.c notes.c note_polygon.c \
     note_text.c
 WIDGET_WHEEL := $(addprefix display/widgets/wheel/,$(WIDGET_WHEEL))
 
