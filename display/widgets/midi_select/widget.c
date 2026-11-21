@@ -7,13 +7,14 @@
 
 #include <raylib.h>
 
-#include "widgets/midi_select/widget.h"
+#include "widget.h"
+#include "widgets/layout.h"
 #include "colors.h"
 
-void MidiSelector()
+void MidiSelector(int width, int height)
 {
-    DrawRectangle(5, 5, 150, 90, UI_PANEL_COLOR);
-    DrawRectangleLines(5, 5, 150, 90, UI_PANEL_OUTLINE_COLOR);
+    DrawRectangle(width * UI_MARGIN, height * UI_MARGIN, SIDE_BUTTON_WIDTH, SIDE_BUTTON_HEIGHT, UI_PANEL_COLOR);
+    DrawRectangle(width * UI_MARGIN, height * UI_MARGIN, SIDE_BUTTON_WIDTH, SIDE_BUTTON_HEIGHT, UI_PANEL_OUTLINE_COLOR);
 }
 
 void MidiSelector_ProcessInput()

@@ -6,7 +6,7 @@ SRC=main.c \
     midi/midi.c \
     display/fonts.c display/shaders.c \
     options.c colors.c keys.c \
-    display/widgets/widgets.c
+    display/widgets/widgets.c display/widgets/layout.c
 
 
 WIDGET_WHEEL = \

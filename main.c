@@ -5,11 +5,8 @@
 #include "fonts.h"
 
 #include "colors.h"
-#include "options.h"
-
+#include "display/widgets/layout.h"
 #include "display/widgets/widgets.h"
-#include "display/widgets/wheel/widget.h"
-#include "display/widgets/midi_select/widget.h"
 
 #include "midi/midi.h"
 

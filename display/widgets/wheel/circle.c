@@ -2,17 +2,17 @@
 
 #include "widget.h"
 #include "colors.h"
-#include "options.h"
+#include "widgets/layout.h"
 
 
 circleTransform GetCircleTransform(int width, int height)
 {
     circleTransform t = {0};
 
-    int occupy_width = width * MAX_OCCUPANCY;
-    int occupy_height = height * MAX_OCCUPANCY;
+    int occupy_width = width * WHEEL_MAX_OCCUPANCY;
+    int occupy_height = height * WHEEL_MAX_OCCUPANCY;
     if (mode == MODE_KEYBOARD) {
-        occupy_height *= MAX_VERTICAL_OCCUPANCY;
+        occupy_height *= WHEEL_MAX_VERTICAL_OCCUPANCY;
     }
 
     if (occupy_width < occupy_height) {
@@ -24,7 +24,7 @@ circleTransform GetCircleTransform(int width, int height)
 
     t.radius *= (1.0 - NOTE_RADIUS_SCALE);
     t.position.x = width / 2;
-    t.position.y = height * (1.0 - MAX_OCCUPANCY) / 2 + t.radius * (1.0 + NOTE_RADIUS_SCALE);
+    t.position.y = height * (1.0 - WHEEL_MAX_OCCUPANCY) / 2 + t.radius * (1.0 + NOTE_RADIUS_SCALE);
 
 
     return t;

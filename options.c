@@ -1,18 +1,5 @@
 #include "options.h"
 
-int mode = MODE_WHEEL;
-
-const float MAX_OCCUPANCY = 0.95;
-float MAX_VERTICAL_OCCUPANCY = 0.5;
-
-float NOTE_RADIUS_SCALE = 0.15;
-float NOTE_GLOW_SCALE = 1.88;
-float NOTE_POLYGON_THICKNESS = 3.5;
-float NOTE_POLYGON_GLOW_THICKNESS = 24.0;
-
-float CIRCLE_DEFAULT_RADIUS = HEIGHT * MAX_OCCUPANCY / 2.0;
-
-
 float RECONNECT_TIME = 0.8;
 
 unsigned int MIDI_SELECTION = 1;
