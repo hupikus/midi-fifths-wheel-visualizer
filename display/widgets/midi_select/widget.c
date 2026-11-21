@@ -51,4 +51,8 @@ void MidiSelector_Input(struct mouseState *mouse)
 
     selected = true;
     pressed = mouse->left.down;
+
+    if (mouse->left.pressed) {
+        // Clicked
+    }
 }
