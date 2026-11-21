@@ -24,7 +24,7 @@ void AddToNotePolygon(int order)
 
 void NotePolygon(circleTransform t)
 {
-    if (points_size < 3) return;
+    if (points_size < 2) return;
 
     for (int i = 0; i < points_size; ++i) {
         int j = (i + 1) % points_size;
