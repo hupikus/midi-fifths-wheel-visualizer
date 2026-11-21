@@ -7,7 +7,7 @@ void Wheel_Layout(int width, int height)
     transform = GetCircleTransform(width, height);
 }
 
-void Wheel_Draw()
+void Wheel_Draw(void)
 {
     Circle(transform);
     Notes(transform);

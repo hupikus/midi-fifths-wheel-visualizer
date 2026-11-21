@@ -1,11 +1,11 @@
 #include "keys.h"
 
-bool pressed[128] = {0};
+bool keys_pressed[128] = {0};
 
 bool IsKeyPressed(int key)
 {
     if (key < 0 || key >= MIDI_RANGE) return false;
-    return pressed[key];
+    return keys_pressed[key];
 }
 
 bool IsNotePressed(int note)
@@ -33,13 +33,13 @@ int GetHigherPressedKey(int note)
 void PressKey(int key)
 {
     if (key < 0 || key >= MIDI_RANGE) return;
-    pressed[key] = true;
+    keys_pressed[key] = true;
 }
 
 void ReleaseKey(int key)
 {
     if (key < 0 || key >= MIDI_RANGE) return;
-    pressed[key] = false;
+    keys_pressed[key] = false;
 }
 
 const char *notes[OCTAVE] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};

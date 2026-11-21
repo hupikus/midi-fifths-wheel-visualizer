@@ -9,7 +9,7 @@ typedef struct {
 } circleTransform;
 
 void Wheel_Layout(int width, int height);
-void Wheel_Draw();
+void Wheel_Draw(void);
 void Wheel_Input(struct mouseState *mouse);
 
 

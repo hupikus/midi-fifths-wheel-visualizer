@@ -21,7 +21,7 @@
 
 static_assert(OCTAVE_COUNT > 0);
 
-extern bool pressed[128];
+extern bool keys_pressed[128];
 
 bool IsKeyPressed(int key);
 bool IsNotePressed(int note);

@@ -20,7 +20,7 @@ void Widgets_Layout(int window_width, int window_height)
     }
 }
 
-void Widgets_Draw()
+void Widgets_Draw(void)
 {
     Wheel_Draw();
     MidiSelector_Draw();
@@ -28,7 +28,7 @@ void Widgets_Draw()
 
 struct mouseState mouse = {0};
 
-void Widgets_Input()
+void Widgets_Input(void)
 {
     mouse.x = GetMouseX();
     mouse.y = GetMouseY();

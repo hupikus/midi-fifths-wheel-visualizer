@@ -12,6 +12,7 @@
 
 #define UI_PANEL_COLOR (Color){40, 40, 40, 255}
 #define UI_PANEL_SELECTED_COLOR (Color){40, 40, 40, 255}
+#define UI_PANEL_PRESSED_COLOR (Color){90, 90, 90, 255}
 #define UI_PANEL_OUTLINE_COLOR (Color){200, 200, 200, 100}
 
 extern Color startColor;

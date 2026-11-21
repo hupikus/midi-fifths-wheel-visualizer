@@ -40,8 +40,8 @@ int main()
         int height = GetRenderHeight();
 
         Widgets_Layout(width, height);
-        Widgets_Draw();
         Widgets_Input();
+        Widgets_Draw();
 
         EndDrawing();
     }
