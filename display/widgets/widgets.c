@@ -7,15 +7,28 @@
 #include "wheel/widget.h"
 #include "midi_select/widget.h"
 
-void DrawWidgets(int width, int height)
+
+int width, height;
+void Widgets_Layout(int window_width, int window_height)
 {
-    Wheel(width, height);
-    MidiSelector(width, height);
+    if (window_width != width || window_height != height) {
+        width = window_width;
+        height = window_height;
+
+        Wheel_Layout(width, height);
+        MidiSelector_Layout(width, height);
+    }
+}
+
+void Widgets_Draw()
+{
+    Wheel_Draw();
+    MidiSelector_Draw();
 }
 
 struct mouseState mouse = {0};
 
-void WidgetsInput()
+void Widgets_Input()
 {
     mouse.x = GetMouseX();
     mouse.y = GetMouseY();
@@ -35,5 +48,6 @@ void WidgetsInput()
     //mouse.right.released = IsMouseButtonReleased(2);
     //mouse.right.up = IsMouseButtonUp(2);
 
-    MidiSelector_ProcessInput(&mouse);
+    Wheel_Input(&mouse);
+    MidiSelector_Input(&mouse);
 }

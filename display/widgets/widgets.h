@@ -8,13 +8,14 @@ struct mouseButton {
     bool up;
 };
 
-struct mouseState{
+struct mouseState {
     int x;
     int y;
 
     struct mouseButton left, middle, right;
 };
 
-void DrawWidgets(int width, int height);
-void WidgetsInput();
+void Widgets_Layout(int width, int height);
+void Widgets_Draw();
+void Widgets_Input();
 #endif // WIDGETS_H

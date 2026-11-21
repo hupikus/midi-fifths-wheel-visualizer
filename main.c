@@ -39,8 +39,9 @@ int main()
         int width = GetRenderWidth();
         int height = GetRenderHeight();
 
-        DrawWidgets(width, height);
-        WidgetsInput();
+        Widgets_Layout(width, height);
+        Widgets_Draw();
+        Widgets_Input();
 
         EndDrawing();
     }

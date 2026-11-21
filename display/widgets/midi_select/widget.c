@@ -11,12 +11,29 @@
 #include "widgets/layout.h"
 #include "colors.h"
 
-void MidiSelector(int width, int height)
+bool selected = false;
+Rectangle btn;
+
+void MidiSelector_Layout(int width, int height)
 {
-    DrawRectangle(width * UI_MARGIN, height * UI_MARGIN, SIDE_BUTTON_WIDTH, SIDE_BUTTON_HEIGHT, UI_PANEL_COLOR);
-    DrawRectangle(width * UI_MARGIN, height * UI_MARGIN, SIDE_BUTTON_WIDTH, SIDE_BUTTON_HEIGHT, UI_PANEL_OUTLINE_COLOR);
+    btn = (Rectangle){
+        width * UI_MARGIN,
+        width * UI_MARGIN,
+        SIDE_BUTTON_WIDTH,
+        SIDE_BUTTON_HEIGHT
+    };
 }
 
-void MidiSelector_ProcessInput(struct mouseState *mouse)
+void MidiSelector_Draw()
+{
+    Color col = UI_PANEL_COLOR;
+    if (selected) {
+        col = UI_PANEL_SELECTED_COLOR;
+    }
+    DrawRectangleRec(btn, col);
+    DrawRectangleRec(btn, UI_PANEL_OUTLINE_COLOR);
+}
+
+void MidiSelector_Input(struct mouseState *mouse)
 {
 }

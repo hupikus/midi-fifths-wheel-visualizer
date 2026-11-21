@@ -1,8 +1,18 @@
 #include "widget.h"
 
-void Wheel(int width, int height)
+circleTransform transform;
+
+void Wheel_Layout(int width, int height)
 {
-    circleTransform transform = GetCircleTransform(width, height);
+    transform = GetCircleTransform(width, height);
+}
+
+void Wheel_Draw()
+{
     Circle(transform);
     Notes(transform);
+}
+
+void Wheel_Input(struct mouseState *mouse)
+{
 }
