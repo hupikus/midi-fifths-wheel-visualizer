@@ -19,10 +19,10 @@ Rectangle btn;
 void MidiSelector_Layout(int width, int height)
 {
     btn = (Rectangle){
-        width * UI_MARGIN,
-        width * UI_MARGIN,
-        SIDE_BUTTON_WIDTH,
-        SIDE_BUTTON_HEIGHT
+        UI_MARGIN,
+        UI_MARGIN,
+        width * SIDE_BUTTON_WIDTH,
+        height * SIDE_BUTTON_HEIGHT
     };
 }
 
@@ -36,7 +36,7 @@ void MidiSelector_Draw(void)
         }
     }
     DrawRectangleRec(btn, col);
-    DrawRectangleRec(btn, UI_PANEL_OUTLINE_COLOR);
+    DrawRectangleLinesEx(btn, 1, UI_PANEL_OUTLINE_COLOR);
 }
 
 void MidiSelector_Input(struct mouseState *mouse)
@@ -47,8 +47,8 @@ void MidiSelector_Input(struct mouseState *mouse)
     if (mouse->x <= btn.x) { return; }
     if (mouse->x >= btn.x + btn.width) { return; }
     if (mouse->y <= btn.y) { return; }
-    if (mouse->x >= btn.y + btn.height) { return; }
+    if (mouse->y >= btn.y + btn.height) { return; }
 
     selected = true;
-    pressed = mouse->left.pressed;
+    pressed = mouse->left.down;
 }

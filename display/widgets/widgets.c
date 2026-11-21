@@ -7,8 +7,9 @@
 #include "wheel/widget.h"
 #include "midi_select/widget.h"
 
+bool buttons = true;
 
-int width, height;
+int width, height = 0;
 void Widgets_Layout(int window_width, int window_height)
 {
     if (window_width != width || window_height != height) {
@@ -16,14 +17,23 @@ void Widgets_Layout(int window_width, int window_height)
         height = window_height;
 
         Wheel_Layout(width, height);
-        MidiSelector_Layout(width, height);
+
+        if (width < UI_MIN_WIDTH || height < UI_MIN_HEIGHT) {
+            buttons = false;
+        } else {
+            buttons = true;
+            MidiSelector_Layout(width, height);
+        }
     }
 }
 
 void Widgets_Draw(void)
 {
     Wheel_Draw();
-    MidiSelector_Draw();
+
+    if (buttons) {
+        MidiSelector_Draw();
+    }
 }
 
 struct mouseState mouse = {0};
@@ -49,5 +59,8 @@ void Widgets_Input(void)
     //mouse.right.up = IsMouseButtonUp(2);
 
     Wheel_Input(&mouse);
-    MidiSelector_Input(&mouse);
+
+    if (buttons) {
+        MidiSelector_Input(&mouse);
+    }
 }

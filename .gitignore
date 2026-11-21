@@ -1,3 +1,5 @@
 viz
 *.o
 *.htmp
+
+submodules/*

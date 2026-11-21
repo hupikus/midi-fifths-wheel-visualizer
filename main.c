@@ -1,5 +1,6 @@
 #include <pthread.h>
 #include <raylib.h>
+#include <rlgl.h>
 
 #include "shaders.h"
 #include "fonts.h"
@@ -34,10 +35,12 @@ int main()
 
     while (!WindowShouldClose()) {
         BeginDrawing();
-        ClearBackground(BACKGROUND);
+        rlViewport(0, 0, GetRenderWidth(), GetRenderHeight());
 
         int width = GetRenderWidth();
         int height = GetRenderHeight();
+
+        ClearBackground(BACKGROUND);
 
         Widgets_Layout(width, height);
         Widgets_Input();
