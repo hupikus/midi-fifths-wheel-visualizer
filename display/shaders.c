@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <rlgl.h>
 
-#include "shaders.htmp"
+#include "shaders/shaders.htmp"
 #include "shaders.h"
 
 

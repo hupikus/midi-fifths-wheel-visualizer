@@ -1,4 +1,4 @@
-#include "display.h"
+#include "widget.h"
 
 #include "options.h"
 #include "colors.h"

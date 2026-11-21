@@ -1,6 +1,6 @@
 #include <math.h>
 
-#include "display.h"
+#include "widget.h"
 #include "fonts.h"
 #include "colors.h"
 

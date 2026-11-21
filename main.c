@@ -7,7 +7,7 @@
 #include "colors.h"
 #include "options.h"
 
-#include "display.h"
+#include "display/widgets/wheel/widget.h"
 #include "display/widgets/midi_select/widget.h"
 
 #include "midi/midi.h"

@@ -1,8 +1,8 @@
 #include <math.h>
 #include <raylib.h>
 
+#include "widget.h"
 #include "shaders.h"
-#include "display.h"
 
 #include "colors.h"
 #include "options.h"

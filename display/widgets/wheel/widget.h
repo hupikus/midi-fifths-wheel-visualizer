@@ -1,5 +1,5 @@
-#ifndef DISPLAY_H
-#define DISPLAY_H
+#ifndef UI_WHEEL_H
+#define UI_WHEEL_H
 #include <raylib.h>
 
 typedef struct {
@@ -18,4 +18,4 @@ void ClearNotePolygon();
 void AddToNotePolygon(int order);
 void NotePolygon(circleTransform t);
 
-#endif // DISPLAY_H
+#endif // UI_WHEEL_H

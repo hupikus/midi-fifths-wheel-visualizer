@@ -1,6 +1,6 @@
 #include <raylib.h>
 
-#include "display.h"
+#include "widget.h"
 #include "colors.h"
 #include "options.h"
 

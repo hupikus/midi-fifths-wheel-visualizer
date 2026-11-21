@@ -12,7 +12,8 @@
 
 void MidiSelector()
 {
-    // DrawRectangle(5, 5, 150, 90, UI_PANEL_COLOR);
+    DrawRectangle(5, 5, 150, 90, UI_PANEL_COLOR);
+    DrawRectangleLines(5, 5, 150, 90, UI_PANEL_OUTLINE_COLOR);
 }
 
 void MidiSelector_ProcessInput()

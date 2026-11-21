@@ -4,11 +4,21 @@ NAME=viz
 
 SRC=main.c \
     midi/midi.c \
-    display/shaders.c \
-    options.c colors.c keys.c \
-    display/widgets/midi_select/widget.c display/widgets/midi_select/midi_list.c \
-    display/circle.c display/notes.c display/note_polygon.c \
-    display/note_text.c display/fonts.c \
+    display/fonts.c display/shaders.c \
+    options.c colors.c keys.c
+
+
+WIDGET_WHEEL = \
+    circle.c notes.c note_polygon.c \
+    note_text.c
+WIDGET_WHEEL := $(addprefix display/widgets/wheel/,$(WIDGET_WHEEL))
+
+WIDGET_MIDI_SELECT = widget.c midi_list.c
+WIDGET_MIDI_SELECT := $(addprefix display/widgets/midi_select/,$(WIDGET_MIDI_SELECT))
+
+
+SRC += $(WIDGET_WHEEL)
+SRC += $(WIDGET_MIDI_SELECT)
 
 FLAGS=-Idisplay/ -I./
 LDFLAGS=-lm -lraylib -lrtmidi
@@ -24,11 +34,13 @@ main: $(OBJ)
 %.o: %.c
 	$(CC) -c $(FLAGS) $< -o $@
 
-display/shaders.o: shaders.htmp
+
+SHADERS_FILE=shaders/shaders.htmp
+display/shaders.o: $(SHADERS_FILE)
 
 clean:
-	rm -f **.o
-	rm -f *.htmp
+	rm -f $(OBJ)
+	rm -f shaders/*.htmp
 
 
 $(NAME): main
@@ -41,12 +53,12 @@ SHADERS = radial_glow line_gradient
 
 SHADER_FILES = $(addprefix shaders/,$(addsuffix .glsl,$(SHADERS)))
 
-shaders.htmp: $(SHADER_FILES)
-	@rm -f shaders.htmp
+$(SHADERS_FILE): $(SHADER_FILES)
+	@rm -f $(SHADERS_FILE)
 	@for shader in $(SHADERS); do \
-		printf 'const char *%s_shader =\n' "$$shader" >> shaders.htmp; \
+		printf 'const char *%s_shader =\n' "$$shader" >> $(SHADERS_FILE); \
 		sed -e 's/\\/\\\\/g' -e 's/"/\\"/g' -e 's/$$/\\n/' \
 			shaders/$$shader.glsl | \
-			sed 's/^/"/; s/\\n$$/\\n"/' >> shaders.htmp; \
-		printf ';\n' >> shaders.htmp; \
+			sed 's/^/"/; s/\\n$$/\\n"/' >> $(SHADERS_FILE); \
+		printf ';\n' >> $(SHADERS_FILE); \
 	done

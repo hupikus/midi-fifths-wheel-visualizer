@@ -37,11 +37,11 @@ void MidiCallback(double timestamp,
 
     if (status == MIDI_NOTE_ON)
     {
-        assert(msg[2] > 0);
+        //assert(msg[2] > 0);
         PressKey(msg[1]);
         //printf("Note pressed\n");
     } else if (status == MIDI_NOTE_OFF) {
-        assert(msg[2] == 0);
+        //assert(msg[2] == 0);
         ReleaseKey(msg[1]);
         //printf("Note released\n");
     }
@@ -96,6 +96,7 @@ void *InitMidi(void *arg)
                 connected = true;
 
                 rtmidi_in_set_callback(midi_in, MidiCallback, NULL);
+                break;
             }
         }
         if (connected && port >= count)
