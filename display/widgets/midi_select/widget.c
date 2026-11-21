@@ -17,6 +17,6 @@ void MidiSelector(int width, int height)
     DrawRectangle(width * UI_MARGIN, height * UI_MARGIN, SIDE_BUTTON_WIDTH, SIDE_BUTTON_HEIGHT, UI_PANEL_OUTLINE_COLOR);
 }
 
-void MidiSelector_ProcessInput()
+void MidiSelector_ProcessInput(struct mouseState *mouse)
 {
 }

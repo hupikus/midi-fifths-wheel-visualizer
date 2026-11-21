@@ -5,7 +5,7 @@
 #include "shaders.h"
 
 #include "colors.h"
-#include "options.h"
+#include "widgets/layout.h"
 
 #include "keys.h"
 

@@ -40,6 +40,7 @@ int main()
         int height = GetRenderHeight();
 
         DrawWidgets(width, height);
+        WidgetsInput();
 
         EndDrawing();
     }

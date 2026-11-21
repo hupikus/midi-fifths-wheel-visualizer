@@ -1,6 +1,6 @@
 #include "widget.h"
 
-#include "options.h"
+#include "widgets/layout.h"
 #include "colors.h"
 
 #include "keys.h"
